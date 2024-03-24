@@ -26,8 +26,8 @@ function validDate() {
     resultMonth.innerHTML = differenceInMonth;
     resultDay.innerHTML = differenceInDays;
 
-    // CHECK, IS ALL THE INPUT ARE VELID OR NOT?
-    if(!day || !month || !year || day <= 0 || month <= 0 || year <= 0 ){
+    // THIS FUNCTION FOR THE ERROR MESSAGE
+    function errorHandler (){
         dataInputs.classList.add('error-state');
         for (let index = 0; index < errorMessage.length; index++) {
             errorMessage[index].style.display = 'block'
@@ -35,39 +35,19 @@ function validDate() {
         resultYear.innerHTML = '--';
         resultMonth.innerHTML = '--';
         resultDay.innerHTML = '--';
+    }
 
+    // CHECK, IS ALL THE INPUT ARE VaLID OR NOT?
+    if(!day || !month || !year || day <= 0 || month <= 0 || year <= 0 ){
+        errorHandler()              //CAN'T SUBMIT 0 OR NEGITIVE NUMBER
     }else if(inputDate > todaysDate){
-        dataInputs.classList.add('error-state');
-        for (let index = 0; index < errorMessage.length; index++) {
-            errorMessage[index].style.display = 'block'
-        }
-        resultYear.innerHTML = '--';
-        resultMonth.innerHTML = '--';
-        resultDay.innerHTML = '--';
+        errorHandler()              //CAN'T SUBMIT FUTURE DATE
     }else if(day > 31 || month > 12 || year > 2100){
-        dataInputs.classList.add('error-state');
-        for (let index = 0; index < errorMessage.length; index++) {
-            errorMessage[index].style.display = 'block'
-        }
-        resultYear.innerHTML = '--';
-        resultMonth.innerHTML = '--';
-        resultDay.innerHTML = '--';
+        errorHandler()              //CANT'T SUBMIT MORE DAYS MONTH OR YEAR
     }else if((month == 4 || month == 6 || month == 9 || month == 11) && day > 30){
-        dataInputs.classList.add('error-state');
-        for (let index = 0; index < errorMessage.length; index++) {
-            errorMessage[index].style.display = 'block'
-        }
-        resultYear.innerHTML = '--';
-        resultMonth.innerHTML = '--';
-        resultDay.innerHTML = '--';
+        errorHandler()              //CANT'T SUBMIT 31 DAYS FOR APRIL, JUNE, SEPTEMBER, NOVEMBER
     }else if( month == 2 && (day > 29 || ( day == 29 && !isLeepYear(year)))){
-        dataInputs.classList.add('error-state');
-        for (let index = 0; index < errorMessage.length; index++) {
-            errorMessage[index].style.display = 'block'
-        }
-        resultYear.innerHTML = '--';
-        resultMonth.innerHTML = '--';
-        resultDay.innerHTML = '--';
+        errorHandler()              //HANDLE THE FEBRUARY MONTH AND LEEPYEAR
     }else{
         dataInputs.classList.remove('error-state')
         for (let index = 0; index < errorMessage.length; index++) {
