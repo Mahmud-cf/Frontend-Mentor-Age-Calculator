@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    min-width: 100%;
+    max-height: 100%;
+    background-color: hsl(0, 0%, 94%);
+}
+.age-calculator-component{
+    min-height: calc(100vh - 2rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.age-calculator-component .age-component-main{
+    background-color: hsl(0, 0%, 100%);
+    width:40rem;
+    padding:3rem;
+    border-radius: 1rem 1rem 9rem 1rem;
+}
+.date-inputs{
+    display: flex;
+    padding-bottom:2rem;
+    border-bottom:1px solid hsl(0, 0%, 86%);
+    position: relative;
+}
+.date-inputs .indivitual-input{
+    margin-right:2rem;
+}
+.indivitual-input p{
+    font-size: 10px;
+    font-style: italic;
+    color:hsl(0, 100%, 67%);
+    display: none;
+}
+.date-inputs label{
+    display: block;
+    font-size: 14px;
+    color:hsl(0, 1%, 44%);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.date-inputs input{
+    width:8rem;
+    padding: 5px 14px;
+    font-size: 32px;
+    font-weight: 700;
+    border-radius: 6px;
+    margin-top:6.5px;
+    border: 1px solid hsl(0, 0%, 86%);
+    color:hsl(0, 1%, 44%);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+.button-img{
+    background-color: hsl(259, 100%, 65%);
+    border-radius: 50%;
+    display: inline-block;
+    padding:1rem;
+    position: absolute;
+    bottom:-37.5px;
+    right:0;
+    cursor: pointer;
+}
+.age-result{
+    padding-top:3rem;
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-style: italic;
+}
+#result-year, #result-month, #result-day{
+    color:hsl(259, 100%, 65%);
+}
+.error-state .indivitual-input *{
+    color:hsl(0, 100%, 67%);
+    border-color:hsl(0, 100%, 67%);
+}
+.error-state .indivitual-input input{
+    color:hsl(0, 1%, 44%);
+}
+
+
+
